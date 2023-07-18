@@ -40,6 +40,7 @@ var axios_1 = require("axios");
 var fs = require("fs");
 var cheerio = require("cheerio");
 var child_process = require("child_process");
+var README_TEMPLATE = "# Daily GitHub Trending\n\n\u9879\u76EE\u7B80\u4ECB\uFF1A\u6BCF\u65E5\u540C\u6B65\uFF0Cgithub \u70ED\u699C\n\n# \u66F4\u65B0\u5982\u4E0B\n\n[2023-07-18](https://github.com/CharlieLau/github-trending/blob/master/2023-07-18.md)\n";
 function gitAddCommitPush(date, filename) {
     var cmdGitAdd = "git add ".concat(filename);
     var cmdGitCommit = "git commit -m \"".concat(date, "\"");
@@ -50,6 +51,8 @@ function gitAddCommitPush(date, filename) {
 }
 function createMarkdown(date, filename) {
     fs.writeFileSync(filename, "## ".concat(date, "\n"));
+}
+function updateREADME() {
 }
 function scrape(language, filename) {
     return __awaiter(this, void 0, void 0, function () {
@@ -72,9 +75,8 @@ function scrape(language, filename) {
                     fs.appendFileSync(filename, "\n#### ".concat(language, "\n"), 'utf-8');
                     items.each(function (_, item) {
                         var title = $(item).find('.lh-condensed a').text().replace(/\s+/g, '').replace(/\n+/g, '').trim();
-                        var owner = $(item).find('.lh-condensed span.text-normal').text().replace(/\s+/g, '').replace(/\n+/g, '').trim();
+                        // const owner = $(item).find('.lh-condensed span.text-normal').text().replace(/\s+/g, '').replace(/\n+/g,'').trim();
                         var description = $(item).find('p.col-9').text().replace(/\s+/g, '').replace(/\n+/g, '').trim();
-                        console.log(owner);
                         var url = "https://github.com".concat($(item).find('.lh-condensed a').attr('href'));
                         fs.appendFileSync(filename, "* [".concat(title, "](").concat(url, "):").concat(description, "\n"), 'utf-8');
                     });
@@ -90,7 +92,7 @@ function job() {
             switch (_a.label) {
                 case 0:
                     strDate = new Date().toISOString().slice(0, 10);
-                    filename = "".concat(strDate, ".md");
+                    filename = "days/".concat(strDate, ".md");
                     createMarkdown(strDate, filename);
                     return [4 /*yield*/, scrape('javascript', filename)];
                 case 1:

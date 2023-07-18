@@ -3,6 +3,18 @@ import * as fs from 'fs';
 import * as cheerio from 'cheerio';
 import * as child_process from 'child_process';
 
+
+
+const README_TEMPLATE =`# Daily GitHub Trending
+
+项目简介：每日同步，github 热榜
+
+# 更新如下
+
+[2023-07-18](https://github.com/CharlieLau/github-trending/blob/master/2023-07-18.md)
+`
+
+
 function gitAddCommitPush(date: string, filename: string) {
   const cmdGitAdd = `git add ${filename}`;
   const cmdGitCommit = `git commit -m "${date}"`;
@@ -15,6 +27,12 @@ function gitAddCommitPush(date: string, filename: string) {
 
 function createMarkdown(date: string, filename: string) {
   fs.writeFileSync(filename, `## ${date}\n`);
+}
+
+
+function  updateREADME(){
+
+
 }
 
 async function scrape(language: string, filename: string) {
@@ -49,7 +67,7 @@ async function scrape(language: string, filename: string) {
 
 async function job() {
   const strDate = new Date().toISOString().slice(0, 10);
-  const filename = `${strDate}.md`;
+  const filename = `days/${strDate}.md`;
 
   createMarkdown(strDate, filename);
 
