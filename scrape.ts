@@ -5,16 +5,6 @@ import * as child_process from 'child_process';
 
 
 
-const README_TEMPLATE =`# Daily GitHub Trending
-
-项目简介：每日同步，github 热榜
-
-# 更新如下
-
-[2023-07-18](https://github.com/CharlieLau/github-trending/blob/master/2023-07-18.md)
-`
-
-
 function gitAddCommitPush(date: string, filename: string) {
   const cmdGitAdd = `git add ${filename}`;
   const cmdGitCommit = `git commit -m "${date}"`;
@@ -30,9 +20,18 @@ function createMarkdown(date: string, filename: string) {
 }
 
 
-function  updateREADME(){
+function updateREADME(date:string){
+
+   const content = fs.readFileSync('README.md','utf8')
 
 
+  const index = content.indexOf('# 日期如下')
+
+  const daysParts = content.substring(index);
+  const headParts  = content.substring(0,index);
+
+  const newContent = [headParts,daysParts.replace('# 日期如下\n\n',`# 日期如下\n\n[${date}](https://github.com/CharlieLau/github-trending/blob/master/days/${date}.md)\n`)].join('\n');
+  fs.writeFileSync('README.md',newContent,'utf8')
 }
 
 async function scrape(language: string, filename: string) {
@@ -77,6 +76,8 @@ async function job() {
   await scrape('python', filename);
 
   gitAddCommitPush(strDate, filename);
+
+  await  updateREADME(strDate);
 }
 
 job();

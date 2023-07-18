@@ -40,7 +40,6 @@ var axios_1 = require("axios");
 var fs = require("fs");
 var cheerio = require("cheerio");
 var child_process = require("child_process");
-var README_TEMPLATE = "# Daily GitHub Trending\n\n\u9879\u76EE\u7B80\u4ECB\uFF1A\u6BCF\u65E5\u540C\u6B65\uFF0Cgithub \u70ED\u699C\n\n# \u66F4\u65B0\u5982\u4E0B\n\n[2023-07-18](https://github.com/CharlieLau/github-trending/blob/master/2023-07-18.md)\n";
 function gitAddCommitPush(date, filename) {
     var cmdGitAdd = "git add ".concat(filename);
     var cmdGitCommit = "git commit -m \"".concat(date, "\"");
@@ -52,7 +51,13 @@ function gitAddCommitPush(date, filename) {
 function createMarkdown(date, filename) {
     fs.writeFileSync(filename, "## ".concat(date, "\n"));
 }
-function updateREADME() {
+function updateREADME(date) {
+    var content = fs.readFileSync('README.md', 'utf8');
+    var index = content.indexOf('# 日期如下');
+    var daysParts = content.substring(index);
+    var headParts = content.substring(0, index);
+    var newContent = [headParts, daysParts.replace('# 日期如下\n\n', "[".concat(date, "](https://github.com/CharlieLau/github-trending/blob/master/days/").concat(date, ".md)\n"))].join('\n');
+    fs.writeFileSync('README.md', newContent, 'utf8');
 }
 function scrape(language, filename) {
     return __awaiter(this, void 0, void 0, function () {
@@ -107,6 +112,9 @@ function job() {
                 case 4:
                     _a.sent();
                     gitAddCommitPush(strDate, filename);
+                    return [4 /*yield*/, updateREADME(strDate)];
+                case 5:
+                    _a.sent();
                     return [2 /*return*/];
             }
         });
