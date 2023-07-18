@@ -52,13 +52,12 @@ async function scrape(language: string, filename: string) {
 
   items.each((_, item) => {
     const title = $(item).find('.lh-condensed a').text().replace(/\s+/g, '').replace(/\n+/g,'').trim();
-    // const owner = $(item).find('.lh-condensed span.text-normal').text().replace(/\s+/g, '').replace(/\n+/g,'').trim();
-    const description = $(item).find('p.col-9').text().replace(/\s+/g, '').replace(/\n+/g,'').trim();
+    const description = $(item).find('p.col-9').text().replace(/\s+/g, ' ').replace(/\n+/g,'').trim();
     const url = `https://github.com${$(item).find('.lh-condensed a').attr('href')}`;
 
     fs.appendFileSync(
       filename,
-      `* [${title}](${url}):${description}\n`,
+      `* [${title}](${url}): ${description}\n`,
       'utf-8'
     );
   });

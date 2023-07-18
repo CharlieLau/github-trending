@@ -56,7 +56,7 @@ function updateREADME(date) {
     var index = content.indexOf('# 日期如下');
     var daysParts = content.substring(index);
     var headParts = content.substring(0, index);
-    var newContent = [headParts, daysParts.replace('# 日期如下\n\n', "[".concat(date, "](https://github.com/CharlieLau/github-trending/blob/master/days/").concat(date, ".md)\n"))].join('\n');
+    var newContent = [headParts, daysParts.replace('# 日期如下\n\n', "# \u65E5\u671F\u5982\u4E0B\n\n[".concat(date, "](https://github.com/CharlieLau/github-trending/blob/master/days/").concat(date, ".md)\n"))].join('\n');
     fs.writeFileSync('README.md', newContent, 'utf8');
 }
 function scrape(language, filename) {
@@ -80,10 +80,9 @@ function scrape(language, filename) {
                     fs.appendFileSync(filename, "\n#### ".concat(language, "\n"), 'utf-8');
                     items.each(function (_, item) {
                         var title = $(item).find('.lh-condensed a').text().replace(/\s+/g, '').replace(/\n+/g, '').trim();
-                        // const owner = $(item).find('.lh-condensed span.text-normal').text().replace(/\s+/g, '').replace(/\n+/g,'').trim();
-                        var description = $(item).find('p.col-9').text().replace(/\s+/g, '').replace(/\n+/g, '').trim();
+                        var description = $(item).find('p.col-9').text().replace(/\s+/g, ' ').replace(/\n+/g, '').trim();
                         var url = "https://github.com".concat($(item).find('.lh-condensed a').attr('href'));
-                        fs.appendFileSync(filename, "* [".concat(title, "](").concat(url, "):").concat(description, "\n"), 'utf-8');
+                        fs.appendFileSync(filename, "* [".concat(title, "](").concat(url, "): ").concat(description, "\n"), 'utf-8');
                     });
                     return [2 /*return*/];
             }
