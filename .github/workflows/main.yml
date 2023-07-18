@@ -1,0 +1,32 @@
+name: Daily GitHub Trending
+
+on:
+  schedule:
+    - cron: '0 4 * * *'
+
+jobs:
+  daily-task:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Set up Node.js
+      uses: actions/setup-node@v2
+      with:
+        node-version: 14
+
+    - name: Install dependencies
+      run: npm install
+
+    - name: Run Task
+      run: node scraper.js
+
+    - name: Commit and push changes
+      run: |
+        git config --global user.name "CharlieLau"
+        git config --global user.email "278652163@qq.com"
+        git add .
+        git commit -m "Update trending repositories - $(date +'%Y-%m-%d')"
+        git push

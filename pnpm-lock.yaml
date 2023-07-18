@@ -1,0 +1,183 @@
+lockfileVersion: 5.4
+
+specifiers:
+  '@types/node': ^20.4.2
+  axios: ^1.4.0
+  cheerio: 1.0.0-rc.12
+
+dependencies:
+  axios: 1.4.0
+  cheerio: 1.0.0-rc.12
+
+devDependencies:
+  '@types/node': 20.4.2
+
+packages:
+
+  /@types/node/20.4.2:
+    resolution: {integrity: sha1-EpzJrmn5OCT5L6xlPuv7SBKrSvk=, tarball: '@types/node/download/@types/node-20.4.2.tgz'}
+    dev: true
+
+  /asynckit/0.4.0:
+    resolution: {integrity: sha1-x57Zf380y48robyXkLzDZkdLS3k=, tarball: asynckit/download/asynckit-0.4.0.tgz}
+    dev: false
+
+  /axios/1.4.0:
+    resolution: {integrity: sha1-OKe/EiTNMI3icRRgOLVR1yXwvh8=, tarball: axios/download/axios-1.4.0.tgz}
+    dependencies:
+      follow-redirects: 1.15.2
+      form-data: 4.0.0
+      proxy-from-env: 1.1.0
+    transitivePeerDependencies:
+      - debug
+    dev: false
+
+  /boolbase/1.0.0:
+    resolution: {integrity: sha1-aN/1++YMUes3cl6p4+0xDcwed24=, tarball: boolbase/download/boolbase-1.0.0.tgz}
+    dev: false
+
+  /cheerio-select/2.1.0:
+    resolution: {integrity: sha1-TYZzKGuBJsoqjkJ0DV48SISuIbQ=, tarball: cheerio-select/download/cheerio-select-2.1.0.tgz}
+    dependencies:
+      boolbase: 1.0.0
+      css-select: 5.1.0
+      css-what: 6.1.0
+      domelementtype: 2.3.0
+      domhandler: 5.0.3
+      domutils: 3.0.1
+    dev: false
+
+  /cheerio/1.0.0-rc.12:
+    resolution: {integrity: sha1-eIv3RmUGsca/X65R0kosTWLkdoM=, tarball: cheerio/download/cheerio-1.0.0-rc.12.tgz}
+    engines: {node: '>= 6'}
+    dependencies:
+      cheerio-select: 2.1.0
+      dom-serializer: 2.0.0
+      domhandler: 5.0.3
+      domutils: 3.0.1
+      htmlparser2: 8.0.2
+      parse5: 7.1.2
+      parse5-htmlparser2-tree-adapter: 7.0.0
+    dev: false
+
+  /combined-stream/1.0.8:
+    resolution: {integrity: sha1-w9RaizT9cwYxoRCoolIGgrMdWn8=, tarball: combined-stream/download/combined-stream-1.0.8.tgz}
+    engines: {node: '>= 0.8'}
+    dependencies:
+      delayed-stream: 1.0.0
+    dev: false
+
+  /css-select/5.1.0:
+    resolution: {integrity: sha1-uOvWVUw2N8zHZoiAStP2pv2uqKY=, tarball: css-select/download/css-select-5.1.0.tgz}
+    dependencies:
+      boolbase: 1.0.0
+      css-what: 6.1.0
+      domhandler: 5.0.3
+      domutils: 3.0.1
+      nth-check: 2.1.1
+    dev: false
+
+  /css-what/6.1.0:
+    resolution: {integrity: sha1-+17/z3bx3eosgb36pN5E55uscPQ=, tarball: css-what/download/css-what-6.1.0.tgz}
+    engines: {node: '>= 6'}
+    dev: false
+
+  /delayed-stream/1.0.0:
+    resolution: {integrity: sha1-3zrhmayt+31ECqrgsp4icrJOxhk=, tarball: delayed-stream/download/delayed-stream-1.0.0.tgz}
+    engines: {node: '>=0.4.0'}
+    dev: false
+
+  /dom-serializer/2.0.0:
+    resolution: {integrity: sha1-5BuALh7t+fbK4YPOXmIteJ19jlM=, tarball: dom-serializer/download/dom-serializer-2.0.0.tgz}
+    dependencies:
+      domelementtype: 2.3.0
+      domhandler: 5.0.3
+      entities: 4.5.0
+    dev: false
+
+  /domelementtype/2.3.0:
+    resolution: {integrity: sha1-XEXo6GmVJiYzHXqrMm0B2vZdWJ0=, tarball: domelementtype/download/domelementtype-2.3.0.tgz}
+    dev: false
+
+  /domhandler/5.0.3:
+    resolution: {integrity: sha1-zDhff3UfHR/GUMITdIBCVFOMfTE=, tarball: domhandler/download/domhandler-5.0.3.tgz}
+    engines: {node: '>= 4'}
+    dependencies:
+      domelementtype: 2.3.0
+    dev: false
+
+  /domutils/3.0.1:
+    resolution: {integrity: sha1-aWs4dSODOMsYa2wGEr1JAciaTxw=, tarball: domutils/download/domutils-3.0.1.tgz}
+    dependencies:
+      dom-serializer: 2.0.0
+      domelementtype: 2.3.0
+      domhandler: 5.0.3
+    dev: false
+
+  /entities/4.5.0:
+    resolution: {integrity: sha1-XSaOpecRPsdMTQM7eepaNaSI+0g=, tarball: entities/download/entities-4.5.0.tgz}
+    engines: {node: '>=0.12'}
+    dev: false
+
+  /follow-redirects/1.15.2:
+    resolution: {integrity: sha1-tGCGQUS6Y/JoEJbydMTlcCbaLBM=, tarball: follow-redirects/download/follow-redirects-1.15.2.tgz}
+    engines: {node: '>=4.0'}
+    peerDependencies:
+      debug: '*'
+    peerDependenciesMeta:
+      debug:
+        optional: true
+    dev: false
+
+  /form-data/4.0.0:
+    resolution: {integrity: sha1-k5Gdrq82HuUpWEubMWZNwSyfpFI=, tarball: form-data/download/form-data-4.0.0.tgz}
+    engines: {node: '>= 6'}
+    dependencies:
+      asynckit: 0.4.0
+      combined-stream: 1.0.8
+      mime-types: 2.1.35
+    dev: false
+
+  /htmlparser2/8.0.2:
+    resolution: {integrity: sha1-8AIVFwWzg+YkM7XPRm9bcW7a7CE=, tarball: htmlparser2/download/htmlparser2-8.0.2.tgz}
+    dependencies:
+      domelementtype: 2.3.0
+      domhandler: 5.0.3
+      domutils: 3.0.1
+      entities: 4.5.0
+    dev: false
+
+  /mime-db/1.52.0:
+    resolution: {integrity: sha1-u6vNwChZ9JhzAchW4zh85exDv3A=, tarball: mime-db/download/mime-db-1.52.0.tgz}
+    engines: {node: '>= 0.6'}
+    dev: false
+
+  /mime-types/2.1.35:
+    resolution: {integrity: sha1-OBqHG2KnNEUGYK497uRIE/cNlZo=, tarball: mime-types/download/mime-types-2.1.35.tgz}
+    engines: {node: '>= 0.6'}
+    dependencies:
+      mime-db: 1.52.0
+    dev: false
+
+  /nth-check/2.1.1:
+    resolution: {integrity: sha1-yeq0KO/842zWuSySS9sADvHx7R0=, tarball: nth-check/download/nth-check-2.1.1.tgz}
+    dependencies:
+      boolbase: 1.0.0
+    dev: false
+
+  /parse5-htmlparser2-tree-adapter/7.0.0:
+    resolution: {integrity: sha1-I8LMIzvPCbt766i4pp1GsIxiwvE=, tarball: parse5-htmlparser2-tree-adapter/download/parse5-htmlparser2-tree-adapter-7.0.0.tgz}
+    dependencies:
+      domhandler: 5.0.3
+      parse5: 7.1.2
+    dev: false
+
+  /parse5/7.1.2:
+    resolution: {integrity: sha1-Bza+u/13eTgjJAojt/xeAQt/jjI=, tarball: parse5/download/parse5-7.1.2.tgz}
+    dependencies:
+      entities: 4.5.0
+    dev: false
+
+  /proxy-from-env/1.1.0:
+    resolution: {integrity: sha1-4QLxbKNVQkhldV0sno6k8k1Yw+I=, tarball: proxy-from-env/download/proxy-from-env-1.1.0.tgz}
+    dev: false

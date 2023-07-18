@@ -1,0 +1,27 @@
+{
+  "name": "@charlie_lau/github-trending",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build":"tsc scrape.ts"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CharlieLau/github-trending.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/CharlieLau/github-trending/issues"
+  },
+  "homepage": "https://github.com/CharlieLau/github-trending#readme",
+  "dependencies": {
+    "axios": "^1.4.0",
+    "cheerio": "1.0.0-rc.12"
+  },
+  "devDependencies": {
+    "@types/node": "^20.4.2"
+  }
+}
