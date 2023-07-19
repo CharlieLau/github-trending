@@ -30,7 +30,7 @@ function updateREADME(date:string){
   const daysParts = content.substring(index);
   const headParts  = content.substring(0,index);
 
-  const newContent = [headParts,daysParts.replace('# 日期如下\n\n',`# 日期如下\n\n[${date}](https://github.com/CharlieLau/github-trending/blob/master/days/${date}.md)\n`)].join('\n');
+  const newContent = [headParts,daysParts.replace('## 日期如下\n\n',`## 日期如下\n\n[${date}](https://github.com/CharlieLau/github-trending/blob/master/days/${date}.md)\n`)].join('\n');
   fs.writeFileSync('README.md',newContent,'utf8')
 }
 
