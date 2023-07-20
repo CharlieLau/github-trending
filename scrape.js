@@ -53,10 +53,10 @@ function createMarkdown(date, filename) {
 }
 function updateREADME(date) {
     var content = fs.readFileSync('README.md', 'utf8');
-    var index = content.indexOf('# 日期如下');
+    var index = content.indexOf('## 日期如下');
     var daysParts = content.substring(index);
     var headParts = content.substring(0, index);
-    var newContent = [headParts, daysParts.replace('# 日期如下\n\n', "# \u65E5\u671F\u5982\u4E0B\n\n[".concat(date, "](https://github.com/CharlieLau/github-trending/blob/master/days/").concat(date, ".md)\n"))].join('\n');
+    var newContent = [headParts, daysParts.replace('## 日期如下\n\n', "## \u65E5\u671F\u5982\u4E0B\n\n[".concat(date, "](https://github.com/CharlieLau/github-trending/blob/master/days/").concat(date, ".md)\n\n"))].join('\n');
     fs.writeFileSync('README.md', newContent, 'utf8');
 }
 function scrape(language, filename) {

@@ -22,15 +22,12 @@ function createMarkdown(date: string, filename: string) {
 
 function updateREADME(date:string){
 
-   const content = fs.readFileSync('README.md','utf8')
-
-
-  const index = content.indexOf('# 日期如下')
+  const content = fs.readFileSync('README.md','utf8')
+  const index = content.indexOf('## 日期如下')
 
   const daysParts = content.substring(index);
   const headParts  = content.substring(0,index);
-
-  const newContent = [headParts,daysParts.replace('## 日期如下\n\n',`## 日期如下\n\n[${date}](https://github.com/CharlieLau/github-trending/blob/master/days/${date}.md)\n`)].join('\n');
+  const newContent = [headParts,daysParts.replace('## 日期如下\n\n',`## 日期如下\n\n[${date}](https://github.com/CharlieLau/github-trending/blob/master/days/${date}.md)\n\n`)].join('\n');
   fs.writeFileSync('README.md',newContent,'utf8')
 }
 
@@ -76,7 +73,7 @@ async function job() {
 
   gitAddCommitPush(strDate, filename);
 
-  await  updateREADME(strDate);
+  await updateREADME(strDate);
 }
 
 job();
